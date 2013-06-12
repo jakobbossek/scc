@@ -1,9 +1,8 @@
-Package: skel
-Type: Package
-Title: What the package does (short line)
-Version: 1.0
-Date: 2013-06-12
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Package: scc
+Version: 0.1
+Title: The scc R-package provides different Sheward quality control charts.
+Author: Jakob Bossek
+Maintainer: Jakob Bossek <jakob.bossek@tu-dortmund.de>
+Description: Shewart quality control charts.
+License: BSD
+Suggests: ggplot2
