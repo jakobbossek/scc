@@ -42,7 +42,7 @@ pkg: clean
 	echo "Roxigenizing package..."
 	${RSCRIPT} ./tools/roxygenize > roxygen.log 2>&1
 	echo "Setting 'Version'in DESCRIPTION"
-	${RSCRIPT} ./tools/set-version 1 0
+	${RSCRIPT} ./tools/set-git-version
 
 test: install
 	${RSCRIPT} ./tools/run-tests

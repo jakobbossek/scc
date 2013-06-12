@@ -18,6 +18,8 @@
 
 # first get the 'one line per revision' represenation of
 # the revisions and count the lines. Finally remove whitespaces.
+# FIXME: the need to tag commits is cumbersome. Make the x.y prefix
+#        of the version number dependent of some command line arguments.
 git_log = system("git log --oneline", TRUE)
 revision_counter = length(git_log)
 

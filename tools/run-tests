@@ -3,6 +3,6 @@
 
 library("methods")
 library("testthat")
-library("soobench")
+library("scc")
 
-test_dir(file.path(system.file(package="soobench"), "tests"))
+test_dir(file.path(system.file(package="scc"), "tests"))
