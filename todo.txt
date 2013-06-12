@@ -1,0 +1,7 @@
+TODO
+
+- add generic generate_chart function. Keep in mind the brainstorming results
+- think about warning/control bounds very thorougly
+- think about what to 
+- find out how to easily extract the git repository revision number (as provided in svn by svnversion) and adapt set-version file
+- implement first version of x-chart with known set value mu

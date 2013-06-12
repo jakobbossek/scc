@@ -1,5 +1,5 @@
 Package: scc
-Version: 0.1
+Version:0.1
 Title: The scc R-package provides different Sheward quality control charts.
 Author: Jakob Bossek
 Maintainer: Jakob Bossek <jakob.bossek@tu-dortmund.de>
