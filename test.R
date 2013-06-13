@@ -1,44 +1,55 @@
+library(ggplot2)
+library(gridExtra)
 library(devtools)
-load_all("skel")
 
+load_all("skel")
 options(warn=2)
 
+set.seed(4334)
 # generate some random blocks
-l = generate_random_blocks(10, 20)
+l = generate_random_blocks(40, 20)
 print(l)
 
 # compute y-values (blockwise mean here)
 y_value = as.numeric(lapply(l, mean))
+bounds = list(UCB = 0.4, LCB = -0.4, UWB = 0.34, LWB = -0.34)
 
-chartA = generate_chart(
+# 'manually' generate some charts
+x1 = generate_chart(
 	blocks = l,
 	type = "ewma",
 	parameters = NULL,
 	y_value = y_value,
 	y_value_name = "mean",
-	bounds = list(UCB = 1, LCB = -1, UWB = 0.8, LWB = -0.8),
+	bounds = bounds,
 	description = "X-bar chart for examplary quantity\n (constant desired value)",
 	desired_value = 0,
 	desired_value_name = "desired_value")
 
-chartB = generate_chart(
+x2 = generate_chart(
 	blocks = l,
 	type = "ewma",
 	parameters = NULL,
 	y_value = y_value,
 	y_value_name = "mean",
-	bounds = list(UCB = 1, LCB = -1, UWB = 0.8, LWB = -0.8),
+	bounds = bounds,
 	description = "X-bar chart for examplary quantity\n (non constant desired value)",
-	desired_value = rnorm(number_of_blocks(chartA), 0, 0.05),
+	desired_value = rnorm(number_of_blocks(x1), 0, 0.05),
 	desired_value_name = "desired_value")
 
-print(chart)
+print(x1)
+print(number_of_blocks(x1))
+print(number_of_outliers(x1))
+print(longest_outlier_sequence(x1))
 
-old_pars = par()
-par(cex.axis=0.7, cex.lab=0.8, mar=c(5,4,4,5)+0.1, mfrow=c(1,2))
-plot(chartA)
-plot(chartB)
-par(old_pars)
+# old_pars = par()
+# par(cex.axis=0.7, cex.lab=0.8, mar=c(5,4,4,5)+0.1, mfrow=c(1,2))
+# plot(chartA)
+# plot(chartB)
+# par(old_pars)
+
+# ggplot2 test
+pl = autoplot(x1)
 
 # plot an very simple x-chart
 # xs = as.numeric(lapply(l, mean))

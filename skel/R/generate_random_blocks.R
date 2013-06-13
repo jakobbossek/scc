@@ -35,4 +35,4 @@ dataframe_to_list <- function(x, byrow=FALSE, na.rm=FALSE) {
 		if (na.rm) res[[i]] = res[[i]][!is.na(res[[i]])]
 	}
 	return(res)
-} 
+}

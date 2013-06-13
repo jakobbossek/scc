@@ -1,7 +1,6 @@
 TODO
 
-- add generic generate_chart function. Keep in mind the brainstorming results
 - think about warning/control bounds very thorougly
-- think about what to 
-- find out how to easily extract the git repository revision number (as provided in svn by svnversion) and adapt set-version file
-- implement first version of x-chart with known set value mu
+- overwork set-git-version backbone
+- implement first precise generate_xxx_chart function for X-Bar chart (keep in mind to figure out a nice architecture for warning_bounds_generator and control_bounds_generator)
+- add autoplot method to "replace" simple plot Function

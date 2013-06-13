@@ -19,5 +19,6 @@ print.scc_chart = function(x, ...) {
 		cat(" (blocks differ in size)")
 	}
 	cat("\n")
-	#FIXME: add output of bounds and 'table' of violated bounds
+	# FIXME: add output of bounds and 'table' of violated bounds
+	# FIXME: maybe it is better to print the bounds in summary(...)
 }
