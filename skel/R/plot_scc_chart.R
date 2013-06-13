@@ -36,19 +36,12 @@ plot.scc_chart = function(x, ...) {
 	} else {
 		lines(1:n_blocks, x$desired_value, lty=5)
 	}
-	# save old pars (mtext does not support string rotation, therefore text is used
-	# and xpd is set to TRUE to be able to draw things outside the plot region)
 	
-	# old_pars = par()
-	# par(xpd=TRUE)
-	mtext(x$desired_value_name, side=4, at=c(n_blocks, y_value_pos), cex=0.7, outer=FALSE, line=1)
-	# text(x=n_blocks+0.4, y=y_value_pos, cex=0.7, labels=x$desired_value_name, pos=4, offset=0.5)
-	# par(old_pars)
+	mtext(x$desired_value_name, side=4, at=c(n_blocks, y_value_pos), cex=0.7, outer=FALSE, line=1, las=1)
 
 	# draw control bounds
 	# FIXME: handle non-constant control bounds
 	if (length(bounds$UCB) == 1) {
-		print("hallo")
 		abline(h=bounds$UCB, lty=5, lwd=2, col="tomato")
 		abline(h=bounds$LCB, lty=5, lwd=2, col="tomato")
 	}
