@@ -20,9 +20,14 @@ number_of_outliers.scc_chart = function(x, ...) {
 	# FIXME: check <= or <
 	below_LCB = (x$y_value <= bounds$LCB)
 	above_UCB = (x$y_value >= bounds$UCB)
+
+	below_LWB = (x$y_value <= bounds$LWB)
+	above_UWB = (x$y_value >= bounds$UWB)
+	# FIXME: what about observations which lie between warning and control bounds
 	df = data.frame(
 		"belowLCB" = length(which(below_LCB)), 
+		"belowLWB" = length(which(below_LWB)),
+		"aboveUWB" = length(which(above_UWB)),
 		"aboveUCB" = length(which(above_UCB)))
-
 	df
 }

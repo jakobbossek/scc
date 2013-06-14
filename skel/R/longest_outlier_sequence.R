@@ -6,6 +6,8 @@
 ##'    Not used.
 ##'
 ##' @return List containing the length and the starting index.
+##'   Length is -1, if the are no observations violating the
+##'   control bounds.
 ##'
 ##' @export 
 longest_outlier_sequence = function(x, ...) {
@@ -14,8 +16,12 @@ longest_outlier_sequence = function(x, ...) {
 
 ##' @S3method longest_outlier_sequence scc_chart
 longest_outlier_sequence.scc_chart = function(x, ...) {
+	# FIXME: add possibility to consider points beyond warning bounds as outliers
 	# extract information
 	n_blocks = number_of_blocks(x)
+	bounds = x$bounds
+
+	# check which y values are beyonds the bounds
 	below_LCB = (x$y_value <= bounds$LCB)
 	above_UCB = (x$y_value >= bounds$UCB)
 
@@ -27,7 +33,7 @@ longest_outlier_sequence.scc_chart = function(x, ...) {
 	# search for longest sequence
 	# FIXME: to this better (maybe with dynamic programming approach)
     i = 1
-    max_sequence_length = 0
+    max_sequence_length = -1
     max_sequence_start_index = NULL
     while (i <= n_blocks) {
     	if (outside_CB[i]) {
@@ -41,10 +47,10 @@ longest_outlier_sequence.scc_chart = function(x, ...) {
     		# save starting index and maximal sequence length
     		if (sequence_length > max_sequence_length) {
     			max_sequence_length = sequence_length
-    			max_seq_start_index = j - sequence_length
+    			max_sequence_start_index = j - sequence_length
     		}
     	}
     	i = i + 1
     }
-    return(list(length = max_sequence_length, start_index = max_seq_start_index))
+    return(list(length = max_sequence_length, start_index = max_sequence_start_index))
 }

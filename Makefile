@@ -35,7 +35,7 @@ package: pkg
 	${R} CMD build pkg/ > package.log 2>&1
 
 check: clean pkg
-	echo "Running R CMD check..."
+	echo "Run_blocksing R CMD check..."
 	${R} CMD check pkg && ${DELETE} pkg.Rcheck
 
 pkg: clean

@@ -15,7 +15,7 @@ plot.scc_chart = function(x, ...) {
 	bounds = x$bounds
 
 	# add enough whitespace between plot border and control lines
-	ylim_space = 0.1*(bounds$UCB-bounds$LCB)
+	ylim_space = 0.1*(max(bounds$UCB)-min(bounds$LCB))
 
 	# draw polygon
 	plot(1:n_blocks, x$y_value, type="l", 
@@ -23,7 +23,7 @@ plot.scc_chart = function(x, ...) {
 		main=x$description,
 		xlab="block",
 		ylab=x$y_value_name,
-		ylim=c(bounds$LCB - ylim_space, bounds$UCB + ylim_space),
+		ylim=c(min(bounds$LCB) - ylim_space, max(bounds$UCB) + ylim_space),
 		...)
 
 	grid()
@@ -44,6 +44,9 @@ plot.scc_chart = function(x, ...) {
 	if (length(bounds$UCB) == 1) {
 		abline(h=bounds$UCB, lty=5, lwd=2, col="tomato")
 		abline(h=bounds$LCB, lty=5, lwd=2, col="tomato")
+	} else {
+		lines(1:n_blocks, bounds$UCB, lty=5, lwd=2, col="tomato")
+		lines(1:n_blocks, bounds$LCB, lty=5, lwd=2, col="tomato")
 	}
 
 	#draw control bounds

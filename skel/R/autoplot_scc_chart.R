@@ -1,3 +1,6 @@
+# FIXME: add flag to let the user set if the longest outlier sequence
+#  shall be highlighted
+
 ##' Plot a SCC chart with ggplot2.
 ##'
 ##' @param x [\code{\link{scc_chart}}]\cr
