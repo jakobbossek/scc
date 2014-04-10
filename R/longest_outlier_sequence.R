@@ -17,7 +17,7 @@ longest_outlier_sequence = function(x, ...) {
 
 #' @S3method longest_outlier_sequence scc_chart
 longest_outlier_sequence.scc_chart = function(x, ...) {
-	# FIXME: add possibility to consider points beyond warning bounds as outliers
+	#FIXME: add possibility to consider points beyond warning bounds as outliers
 	# extract information
 	n_blocks = number_of_blocks(x)
 	bounds = x$bounds
@@ -32,7 +32,7 @@ longest_outlier_sequence.scc_chart = function(x, ...) {
 	outside_CB = below_LCB | above_UCB
 
 	# search for longest sequence
-	# FIXME: to this better (maybe with dynamic programming approach)
+	#FIXME: to this better (maybe with dynamic programming approach)
     i = 1
     max_sequence_length = -1
     max_sequence_start_index = NULL

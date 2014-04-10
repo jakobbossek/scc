@@ -11,6 +11,7 @@
 #' @S3method print scc_chart
 #' @method print scc_chart
 print.scc_chart = function(x, ...) {
+	#FIXME: use catf instead to better arrage this stuff.
 	cat("Sheward Control Chart of type", toupper(x$type), "\n")
 	cat("Number of blocks     :", number_of_blocks(x))
 	l1 = length(x$blocks[[1]])
@@ -20,6 +21,6 @@ print.scc_chart = function(x, ...) {
 		cat(" (blocks differ in size)")
 	}
 	cat("\n")
-	# FIXME: add output of bounds and 'table' of violated bounds
-	# FIXME: maybe it is better to print the bounds in summary(...)
+	#FIXME: add output of bounds and 'table' of violated bounds
+	#FIXME: maybe it is better to print the bounds in summary(...)
 }

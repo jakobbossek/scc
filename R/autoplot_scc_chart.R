@@ -23,6 +23,7 @@ autoplot.scc_chart = function(object,
 	xlab="block", ylab=object$y_value_name, title=object$description,
 	show_histogram=FALSE, ...) {
     #FIXME: add flag to let the user set if the longest outlier sequence shall be highlighted
+    #FIXME: this function is far too long. Split it up into some more functions.
 
   	# extract relavant data
   	desired_value = object$desired_value
@@ -35,6 +36,7 @@ autoplot.scc_chart = function(object,
   	pl = pl + geom_point(shape = 1, size = 3)
 
   	# check whether warning and control bounds are constant
+    #FIXME: the following about 30 lines seem to have much copy&paste code. Do this better!
   	if (length(desired_value) == 1) {
     	pl = pl + geom_hline(linetype = "solid", colour = "grey", yintercept = as.numeric(desired_value))
   	} else {
@@ -63,7 +65,9 @@ autoplot.scc_chart = function(object,
   	pl = pl + ggtitle(title)
 
   	# additional absolute frequency histogram with kernel density estimation
-  	# FIXME: think about this. Really neccessary? grid.arrange does not return ggplot object!!!
+  	#FIXME: think about this. Really neccessary? grid.arrange does not return ggplot object!
+    #       Maybe return a list of ggplot2 objects instead of using gridExtra? Attaching a
+    #       histogram might be a good long example for the usage of scc.
     if (show_histogram) {
   		pl_hist = ggplot(df, aes_string(x = "y")) +
   		geom_histogram(aes_string(y = "..density.."), colour = "darkgreen", alpha = 0.3, fill = "green", bin.width = 1) +

@@ -11,11 +11,12 @@
 #' @S3method plot scc_chart
 #' @method plot scc_chart
 plot.scc_chart = function(x, ...) {
-	# FIXME: add labels for bounds to the right margin
+	#FIXME: add labels for bounds to the right margin
 	n_blocks = number_of_blocks(x)
 	bounds = x$bounds
 
 	# add enough whitespace between plot border and control lines
+	#FIXME: should this be controlled by the user?
 	ylim_space = 0.1*(max(bounds$UCB)-min(bounds$LCB))
 
 	# draw polygon

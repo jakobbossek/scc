@@ -33,6 +33,9 @@ generate_ewma_chart = function(blocks,
 	desired_value, desired_value_name) {
 
 	# build up parameter set
+	#FIXME: this is implemented very ugly! Think about this!
+	#FIXME: Think thorougly about the parameters! This is of utmost importance for a good structure
+	#       of the package.
 	not_privided_params = list(lambda=0.5, omega=1.96, k=3)
 	not_provided_param_names = setdiff(names(not_privided_params), names(parameters))
 	parameters = c(parameters,not_privided_params[not_provided_param_names])

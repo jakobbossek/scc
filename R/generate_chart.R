@@ -35,7 +35,9 @@ generate_chart = function(blocks, type,
 	description,
 	y_value, y_value_name="measured quantity",
 	desired_value, desired_value_name) {
-	#FIXME: check arguments for validity
+	#FIXME: add sanity checks here
+	#FIXME: think about naming of the parameters
+	#FIXME: maybe move dataframe_to_list to JBmisc?
 	blocks = if(is.data.frame(blocks)) dataframe_to_list(blocks, byrow=FALSE) else blocks
 	structure(list(
 		blocks = blocks,
