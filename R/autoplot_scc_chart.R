@@ -1,9 +1,7 @@
 #' Plot a SCC chart with ggplot2.
 #'
-#' @param x [\code{\link{scc_chart}}]\cr
+#' @param object [\code{\link{scc_chart}}]\cr
 #'   An object of type \code{link{scc_chart}}.
-#' @param ... \cr
-#'   Not used.
 #' @param xlab [\code{character(1)}]\cr
 #'   A title for the x axis.
 #' @param ylab [\code{character(1)}]\cr
@@ -13,23 +11,25 @@
 #' @param show_histogram [\code{character(1)}]\cr
 #'   Should a histogram of the y-value be depicted beside the chart?
 #'   Default ist \code{FALSE}.
+#' @param ...\cr
+#'   Not used.
 #'
 #' @return
 #'   A \code{\link[ggplot2]{ggplot2}} object.
 #'
 #' @export autoplot.scc_chart
 #' @method autoplot scc_chart
-autoplot.scc_chart = function(x, ...,
-	xlab="block", ylab=x$y_value_name, title=x$description,
-	show_histogram=FALSE) {
+autoplot.scc_chart = function(object,
+	xlab="block", ylab=object$y_value_name, title=object$description,
+	show_histogram=FALSE, ...) {
     #FIXME: add flag to let the user set if the longest outlier sequence shall be highlighted
 
   	# extract relavant data
-  	desired_value = x$desired_value
-  	n_blocks = number_of_blocks(x)
+  	desired_value = object$desired_value
+  	n_blocks = number_of_blocks(object)
 
   	# base chart plot
-  	df = data.frame(block=1:n_blocks, y=x$y_value)
+  	df = data.frame(block=1:n_blocks, y=object$y_value)
   	pl = ggplot(df, aes(x = block, y = y))
   	pl = pl + geom_line(colour = "gray")
   	pl = pl + geom_point(shape = 1, size = 3)
@@ -41,19 +41,19 @@ autoplot.scc_chart = function(x, ...,
    		pl = pl + geom_line(data = data.frame(block = 1:n_blocks, y = desired_value), aes(x = block, y = y))
   	}
 
-  	if (length(x$bounds$UCB) == 1) {
-    	pl = pl + geom_hline(linetype = "dashed", colour = "black", yintercept = as.numeric(c(x$bounds$LCB, x$bounds$UCB)))
+  	if (length(object$bounds$UCB) == 1) {
+    	pl = pl + geom_hline(linetype = "dashed", colour = "black", yintercept = as.numeric(c(object$bounds$LCB, object$bounds$UCB)))
   	} else {
-  		pl = pl + geom_line(data = data.frame(block = 1:n_blocks, lower = x$bounds$LCB), aes(x = block, y = lower), linetype = "dashed", colour = "black")
-    	pl = pl + geom_line(data = data.frame(block = 1:n_blocks, upper = x$bounds$UCB), aes(x = block, y = upper), linetype = "dashed", colour = "black")
+  		pl = pl + geom_line(data = data.frame(block = 1:n_blocks, lower = object$bounds$LCB), aes(x = block, y = lower), linetype = "dashed", colour = "black")
+    	pl = pl + geom_line(data = data.frame(block = 1:n_blocks, upper = object$bounds$UCB), aes(x = block, y = upper), linetype = "dashed", colour = "black")
   	}
 
-  	if ("LWB" %in% names(x$bounds) && "UWB" %in% names(x$bounds)) {
-		if (length(x$bounds$UWB) == 1) {
-			pl = pl + geom_hline(linetype = "dashed", colour = "black", yintercept = as.numeric(c(x$bounds$LWB, x$bounds$UWB)))
+  	if ("LWB" %in% names(object$bounds) && "UWB" %in% names(object$bounds)) {
+		if (length(object$bounds$UWB) == 1) {
+			pl = pl + geom_hline(linetype = "dashed", colour = "black", yintercept = as.numeric(c(object$bounds$LWB, object$bounds$UWB)))
 	  	} else {
-	  		pl = pl + geom_line(data = data.frame(block = 1:n_blocks, lower = x$bounds$LWB), aes(x = block, y = lower), linetype = "dashed", colour = "darkgrey")
-	    	pl = pl + geom_line(data = data.frame(block = 1:n_blocks, upper = x$bounds$UWB), aes(x = block, y = upper), linetype = "dashed", colour = "darkgrey")
+	  		pl = pl + geom_line(data = data.frame(block = 1:n_blocks, lower = object$bounds$LWB), aes(x = block, y = lower), linetype = "dashed", colour = "darkgrey")
+	    	pl = pl + geom_line(data = data.frame(block = 1:n_blocks, upper = object$bounds$UWB), aes(x = block, y = upper), linetype = "dashed", colour = "darkgrey")
 	  	}
   	}
 
