@@ -8,7 +8,7 @@ number_of_outliers(x, ...)
   \item{x}{[\code{\link{scc_chart}}]\cr An object of type
   \code{\link{scc_chart}}.}
 
-  \item{...}{\cr Not used.}
+  \item{...\cr}{Not used.}
 }
 \value{
 Data frame containing the number of y-values below LCB and

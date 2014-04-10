@@ -1,20 +1,21 @@
-##' Determines the length of the longest consecutive outlier sequence.
-##'
-##' @param x [\code{\link{scc_chart}}]\cr
-##'    An object of type \code{\link{scc_chart}}.
-##' @param ... \cr 
-##'    Not used.
-##'
-##' @return List containing the length and the starting index.
-##'   Length is -1, if the are no observations violating the
-##'   control bounds.
-##'
-##' @export 
+#' Determines the length of the longest consecutive outlier sequence.
+#'
+#' @param x [\code{\link{scc_chart}}]\cr
+#'   An object of type \code{\link{scc_chart}}.
+#' @param ...\cr
+#'   Not used.
+#'
+#' @return
+#'  List containing the length and the starting index.
+#'  Length is -1, if the are no observations violating the
+#'  control bounds.
+#'
+#' @export
 longest_outlier_sequence = function(x, ...) {
 	UseMethod("longest_outlier_sequence")
 }
 
-##' @S3method longest_outlier_sequence scc_chart
+#' @S3method longest_outlier_sequence scc_chart
 longest_outlier_sequence.scc_chart = function(x, ...) {
 	# FIXME: add possibility to consider points beyond warning bounds as outliers
 	# extract information

@@ -1,14 +1,15 @@
-##' Print a SCC chart.
-##' 
-##' @param x [\code{\link{scc_chart}}]\cr
-##'    A \code{\link{scc_chart}} object.
-##' @param ... \cr
-##'    Not used.
-##'
-##' @return Nothing. As a side-effect a textual information is printed to the console
-##'
-##' @S3method print scc_chart
-##' @method print scc_chart
+#' Print a SCC chart.
+#'
+#' @param x [\code{\link{scc_chart}}]\cr
+#'   A \code{\link{scc_chart}} object.
+#' @param ...\cr
+#'   Not used.
+#'
+#' @return
+#'   Nothing. As a side-effect a textual information is printed to the console.
+#'
+#' @S3method print scc_chart
+#' @method print scc_chart
 print.scc_chart = function(x, ...) {
 	cat("Sheward Control Chart of type", toupper(x$type), "\n")
 	cat("Number of blocks     :", number_of_blocks(x))

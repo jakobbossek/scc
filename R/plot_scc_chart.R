@@ -1,14 +1,15 @@
-##' Plot a SCC chart.
-##'
-##' @param x [\code{\link{scc_chart}}]\cr
-##'    An object of type \code{\link{scc_chart}}.
-##' @param ... \cr
-##'    Further params passed to plot function.
-##'
-##' @return Nothing. As a side-effect the chart is plotted.
-##'
-##' @S3method plot scc_chart
-##' @method print scc_chart
+#' Plot a SCC chart.
+#'
+#' @param x [\code{\link{scc_chart}}]\cr
+#'   An object of type \code{\link{scc_chart}}.
+#' @param ... \cr
+#'   Further params passed to plot function.
+#'
+#' @return
+#'   Nothing. As a side-effect the chart is plotted.
+#'
+#' @S3method plot scc_chart
+#' @method plot scc_chart
 plot.scc_chart = function(x, ...) {
 	# FIXME: add labels for bounds to the right margin
 	n_blocks = number_of_blocks(x)
@@ -18,8 +19,8 @@ plot.scc_chart = function(x, ...) {
 	ylim_space = 0.1*(max(bounds$UCB)-min(bounds$LCB))
 
 	# draw polygon
-	plot(1:n_blocks, x$y_value, type="l", 
-		lwd=2, 
+	plot(1:n_blocks, x$y_value, type="l",
+		lwd=2,
 		main=x$description,
 		xlab="block",
 		ylab=x$y_value_name,
@@ -36,7 +37,7 @@ plot.scc_chart = function(x, ...) {
 	} else {
 		lines(1:n_blocks, x$desired_value, lty=5)
 	}
-	
+
 	mtext(x$desired_value_name, side=4, at=c(n_blocks, y_value_pos), cex=0.7, outer=FALSE, line=1, las=1)
 
 	# draw control bounds

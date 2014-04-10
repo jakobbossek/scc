@@ -9,7 +9,7 @@ number_of_blocks(x)
   \code{\link{scc_chart}}.}
 }
 \value{
-[\code{integer(1)}]\cr Number of blocks.
+[\code{integer(1)}] Number of blocks.
 }
 \description{
 Returns number of blocks of a chart.

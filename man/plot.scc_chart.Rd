@@ -2,7 +2,7 @@
 \alias{plot.scc_chart}
 \title{Plot a SCC chart.}
 \usage{
-\method{print}{scc_chart}(x, ...)
+\method{plot}{scc_chart}(x, ...)
 }
 \arguments{
   \item{x}{[\code{\link{scc_chart}}]\cr An object of type
