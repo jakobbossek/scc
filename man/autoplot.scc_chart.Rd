@@ -7,8 +7,8 @@
   show_histogram = FALSE, ...)
 }
 \arguments{
-  \item{object}{[\code{\link{scc_chart}}]\cr An object of
-  type \code{link{scc_chart}}.}
+  \item{object}{[\code{scc_chart}]\cr An object of type
+  \code{scc_chart}.}
 
   \item{xlab}{[\code{character(1)}]\cr A title for the x
   axis.}
@@ -23,7 +23,7 @@
   histogram of the y-value be depicted beside the chart?
   Default ist \code{FALSE}.}
 
-  \item{...\cr}{Not used.}
+  \item{...}{[\code{list}]\cr Not used.}
 }
 \value{
 A \code{\link[ggplot2]{ggplot2}} object.

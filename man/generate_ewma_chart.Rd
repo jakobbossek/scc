@@ -23,10 +23,6 @@ generate_ewma_chart(blocks, center, sd, parameters = list(lambda = 0.5),
   of the measured quantity. Used as subtitle in graphical
   representation.}
 
-  \item{y_value}{[\code{numeric}]\cr Values of the measured
-  characteristic. Typically a single numeric value or a n
-  sequence, where n is the number of blocks.}
-
   \item{y_value_name}{[\code{character(1)}]\cr Name for the
   measured characteristic. Used for example for the y axis
   label in the plot by default.}
@@ -41,8 +37,7 @@ generate_ewma_chart(blocks, center, sd, parameters = list(lambda = 0.5),
   representation.}
 }
 \value{
-Object of class \code{\link{scc_chart}} and
-\code{\link{ewma_chart}}.
+Object of class \code{scc_chart} and \code{ewma_chart}.
 }
 \description{
 Generates an exponentially weighted moving average control

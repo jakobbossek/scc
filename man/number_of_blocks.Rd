@@ -5,8 +5,8 @@
 number_of_blocks(x)
 }
 \arguments{
-  \item{x}{[\code{\link{scc_chart}}]\cr An object of type
-  \code{\link{scc_chart}}.}
+  \item{x}{[\code{scc_chart}]\cr An object of type
+  \code{scc_chart}.}
 }
 \value{
 [\code{integer(1)}] Number of blocks.

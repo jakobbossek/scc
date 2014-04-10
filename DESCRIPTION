@@ -13,6 +13,5 @@ Suggests:
 Depends:
     BBmisc,
     JBmisc,
-    ggplot2
-Imports:
+    ggplot2,
     gridExtra

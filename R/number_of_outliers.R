@@ -1,8 +1,8 @@
 #' Determines the number of outliers, i.e., values out of town.
 #'
-#' @param x [\code{\link{scc_chart}}]\cr
-#'   An object of type \code{\link{scc_chart}}.
-#' @param ...\cr
+#' @param x [\code{scc_chart}]\cr
+#'   An object of type \code{scc_chart}.
+#' @param ... [\code{list}]\cr
 #'   Not used.
 #'
 #' @return

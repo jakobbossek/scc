@@ -5,10 +5,11 @@
 \method{plot}{scc_chart}(x, ...)
 }
 \arguments{
-  \item{x}{[\code{\link{scc_chart}}]\cr An object of type
-  \code{\link{scc_chart}}.}
+  \item{x}{[\code{scc_chart}]\cr An object of type
+  \code{scc_chart}.}
 
-  \item{...}{\cr Further params passed to plot function.}
+  \item{...}{[\code{list}]\cr Further params passed to plot
+  function.}
 }
 \value{
 Nothing. As a side-effect the chart is plotted.

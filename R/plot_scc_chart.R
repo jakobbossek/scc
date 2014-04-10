@@ -1,8 +1,8 @@
 #' Plot a SCC chart.
 #'
-#' @param x [\code{\link{scc_chart}}]\cr
-#'   An object of type \code{\link{scc_chart}}.
-#' @param ... \cr
+#' @param x [\code{scc_chart}]\cr
+#'   An object of type \code{scc_chart}.
+#' @param ... [\code{list}]\cr
 #'   Further params passed to plot function.
 #'
 #' @return

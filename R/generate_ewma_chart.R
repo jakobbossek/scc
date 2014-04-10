@@ -11,9 +11,6 @@
 #'   bounds.
 #' @param description [\code{character(1)}]\cr
 #'   Description of the measured quantity. Used as subtitle in graphical representation.
-#' @param y_value [\code{numeric}]\cr
-#'   Values of the measured characteristic. Typically a single numeric value or a n sequence,
-#'   where n is the number of blocks.
 #' @param y_value_name [\code{character(1)}]\cr
 #'   Name for the measured characteristic. Used for example for the y axis label in the plot
 #'   by default.
@@ -24,7 +21,7 @@
 #'   Label of the desired value. Used in the graphical representation.
 #'
 #' @return
-#'   Object of class \code{\link{scc_chart}} and \code{\link{ewma_chart}}.
+#'   Object of class \code{scc_chart} and \code{ewma_chart}.
 #'
 #' @export
 generate_ewma_chart = function(blocks,

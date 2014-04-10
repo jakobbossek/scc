@@ -1,8 +1,8 @@
 #' Print a SCC chart.
 #'
-#' @param x [\code{\link{scc_chart}}]\cr
-#'   A \code{\link{scc_chart}} object.
-#' @param ...\cr
+#' @param x [\code{scc_chart}]\cr
+#'   A \code{scc_chart} object.
+#' @param ... [\code{list}]\cr
 #'   Not used.
 #'
 #' @return
