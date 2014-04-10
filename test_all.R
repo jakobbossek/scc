@@ -5,7 +5,7 @@ library(testthat)
 if (interactive()) {
   load_all(".")
 } else {
-  library(esoo)
+  library(scc)
 }
 
 test_dir("tests/testthat")

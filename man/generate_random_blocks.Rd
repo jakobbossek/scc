@@ -9,6 +9,9 @@ generate_random_blocks(n = 10, block_size = 5)
 
   \item{block_size}{[integer]\cr Size of each block.}
 }
+\value{
+List of blocks.
+}
 \description{
 Function for generating random blocks
 }

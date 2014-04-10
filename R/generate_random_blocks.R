@@ -5,6 +5,8 @@
 #' @param block_size [integer]\cr
 #'   Size of each block.
 #'
+#' @return
+#'   List of blocks.
 #' @export
 generate_random_blocks <- function(n=10, block_size=5) {
 	l = lapply(1:n, function(i) rnorm(block_size, mean=0, sd=1))
