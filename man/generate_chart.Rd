@@ -1,0 +1,50 @@
+\name{generate_chart}
+\alias{generate_chart}
+\title{Generates control chart object.}
+\usage{
+generate_chart(blocks, type, parameters, bounds, description, y_value,
+  y_value_name = "measured quantity", desired_value, desired_value_name)
+}
+\arguments{
+  \item{blocks}{[\code{list}]\cr List of blocks from which
+  quantity is computed.}
+
+  \item{type}{[\code{character(1)}]\cr Type of the control
+  chart as a string. Currently only x-chart is supported.}
+
+  \item{parameters}{[\code{list}]\cr List of parameters
+  needed to compute control respectively warning bounds.}
+
+  \item{bounds}{[\code{list}]\cr List which contains the
+  fields upper control bound (UCB), lower control bound
+  (LCB), upper warning bound (UWB) and lower warning bound
+  (LWB). At least the two first of those must be provided.}
+
+  \item{description}{[\code{character(1)}]\cr Description
+  of the measured quantity. Used as subtitle in graphical
+  representation.}
+
+  \item{y_value}{[\code{numeric}]\cr Values of the measured
+  characteristic. Typically a single numeric value or a n
+  sequence, where n is the number of blocks.}
+
+  \item{y_value_name}{[\code{character(1)}]\cr Name for the
+  measured characteristic. Used for example for the y axis
+  label in the plot by default.}
+
+  \item{desired_value}{[\code{numeric}]\cr Reference value
+  of the measured quantity, i.e., the average value. May be
+  a single value or comply with the number of blocks (see
+  blocks parameter).}
+
+  \item{desired_value_name}{[\code{character(1)}]\cr Label
+  of the desired value. Used in the graphical
+  representation.}
+}
+\value{
+Object of type \code{scc_chart}.
+}
+\description{
+Generates control chart object.
+}
+

@@ -1,8 +1,0 @@
-#!/usr/bin/env Rscript
-## -*- mode:r -*-
-
-library("methods")
-library("testthat")
-library("scc")
-
-test_dir(file.path(system.file(package="scc"), "tests"))
