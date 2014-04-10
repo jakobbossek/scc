@@ -12,7 +12,7 @@ Suggests:
     testthat
 Depends:
     BBmisc,
-    JBmisc
+    JBmisc,
+    ggplot2
 Imports:
-    ggplot2,
     gridExtra
