@@ -1,6 +1,0 @@
-TODO
-
-- think about warning/control bounds very thorougly
-- overwork set-git-version backbone
-- implement first precise generate_xxx_chart function for X-Bar chart (keep in mind to figure out a nice architecture for warning_bounds_generator and control_bounds_generator)
-- add autoplot method to "replace" simple plot Function
