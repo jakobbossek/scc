@@ -10,9 +10,11 @@ Description: Offers the possibility to draw different types of quality control
 License: BSD_2_clause + file LICENSE
 URL: https://github.com/jbossek/scc
 BugReports: https://github.com/jbossek/scc/issues
-Suggests:
-    testthat
 Depends:
     BBmisc,
     ggplot2,
     gridExtra
+Imports:
+    checkmate (>= 1.1)
+Suggests:
+    testthat
