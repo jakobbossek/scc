@@ -15,7 +15,7 @@ longest_outlier_sequence = function(x, ...) {
 	UseMethod("longest_outlier_sequence")
 }
 
-#' @S3method longest_outlier_sequence scc_chart
+#' @export
 longest_outlier_sequence.scc_chart = function(x, ...) {
 	#FIXME: add possibility to consider points beyond warning bounds as outliers
 	# extract information

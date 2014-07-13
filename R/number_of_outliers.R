@@ -13,7 +13,7 @@ number_of_outliers = function(x, ...) {
 	UseMethod("number_of_outliers")
 }
 
-#' @S3method number_of_outliers scc_chart
+#' @export
 number_of_outliers.scc_chart = function(x, ...) {
 	n_blocks = number_of_blocks(x)
 	bounds = x$bounds

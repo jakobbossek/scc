@@ -8,8 +8,7 @@
 #' @return
 #'   Nothing. As a side-effect a textual information is printed to the console.
 #'
-#' @S3method print scc_chart
-#' @method print scc_chart
+#' @export
 print.scc_chart = function(x, ...) {
 	#FIXME: use catf instead to better arrage this stuff.
 	cat("Sheward Control Chart of type", toupper(x$type), "\n")

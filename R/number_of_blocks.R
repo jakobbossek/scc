@@ -10,7 +10,7 @@ number_of_blocks = function(x) {
 	UseMethod("number_of_blocks")
 }
 
-#' @S3method number_of_blocks scc_chart
+#' @export
 number_of_blocks.scc_chart = function(x, ...) {
 	length(x$blocks)
 }

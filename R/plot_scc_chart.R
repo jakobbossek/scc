@@ -8,8 +8,7 @@
 #' @return
 #'   Nothing. As a side-effect the chart is plotted.
 #'
-#' @S3method plot scc_chart
-#' @method plot scc_chart
+#' @export
 plot.scc_chart = function(x, ...) {
 	#FIXME: add labels for bounds to the right margin
 	n_blocks = number_of_blocks(x)
