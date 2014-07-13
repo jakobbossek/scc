@@ -8,10 +8,10 @@
 #' @return
 #'   List of blocks.
 #' @export
-generate_random_blocks <- function(n=10, block_size=5) {
+generate_random_blocks = function(n = 10, block_size = 5) {
 	#FIXME: this can be made faster
-	l = lapply(1:n, function(i) rnorm(block_size, mean=0, sd=1))
-	names(l) = paste("block", 1:n, sep="")
+	l = lapply(1:n, function(i) rnorm(block_size, mean = 0, sd = 1))
+	names(l) = paste("block", 1:n, sep = "")
 	return(l)
 }
 
@@ -31,7 +31,8 @@ generate_random_blocks <- function(n=10, block_size=5) {
 #'   List.
 #'
 #' @export
-dataframe_to_list <- function(x, byrow=FALSE, na.rm=FALSE) {
+#FIXME: use dfRowToList from BBmisc instead
+dataframe_to_list = function(x, byrow = FALSE, na.rm = FALSE) {
 	#FIXME: this is so ugly
 	res = list()
 	n = if (byrow) nrow(x) else ncol(x)

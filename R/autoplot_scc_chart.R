@@ -20,8 +20,8 @@
 #' @export autoplot.scc_chart
 #' @method autoplot scc_chart
 autoplot.scc_chart = function(object,
-	xlab="block", ylab=object$y_value_name, title=object$description,
-	show_histogram=FALSE, ...) {
+	xlab = "block", ylab = object$y_value_name, title = object$description,
+	show_histogram = FALSE, ...) {
     #FIXME: add flag to let the user set if the longest outlier sequence shall be highlighted
     #FIXME: this function is far too long. Split it up into some more functions.
 
@@ -30,7 +30,7 @@ autoplot.scc_chart = function(object,
   	n_blocks = number_of_blocks(object)
 
   	# base chart plot
-  	df = data.frame(block=1:n_blocks, y=object$y_value)
+  	df = data.frame(block = 1:n_blocks, y = object$y_value)
   	pl = ggplot(df, aes_string(x = "block", y = "y"))
   	pl = pl + geom_line(colour = "gray")
   	pl = pl + geom_point(shape = 1, size = 3)
@@ -78,7 +78,7 @@ autoplot.scc_chart = function(object,
          	axis.text.y =  element_blank()) +
   		coord_flip()
 
-	  	pl = grid.arrange(pl, pl_hist, widths=c(5/6,1/6), ncol=2)
+	  	pl = grid.arrange(pl, pl_hist, widths = c(5/6,1/6), ncol = 2)
   	}
   	return(pl)
 }

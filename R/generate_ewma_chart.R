@@ -27,9 +27,9 @@
 generate_ewma_chart = function(blocks,
 	center,
 	sd,
-	parameters=list(lambda=0.5),
+	parameters = list(lambda = 0.5),
 	description,
-	y_value_name="measured quantity",
+	y_value_name = "measured quantity",
 	desired_value, desired_value_name) {
 
 	# build up parameter set
@@ -51,20 +51,20 @@ generate_ewma_chart = function(blocks,
 	lambda = parameters$lambda
 	y_value[1] = center
 	for (i in 2:n_blocks) {
-		y_value[i] = lambda * block_means[i] + (1-lambda) * y_value[i-1]
+		y_value[i] = lambda * block_means[i] + (1 - lambda) * y_value[i-1]
 	}
 
 	# generate scc chart object
 	generate_chart(
-		blocks=blocks,
-		type="ewma",
-		parameters=parameters,
-		bounds=bounds,
-		description=description,
-		y_value=y_value,
-		y_value_name=y_value_name,
-		desired_value=center,
-		desired_value_name=desired_value_name
+		blocks = blocks,
+		type = "ewma",
+		parameters = parameters,
+		bounds = bounds,
+		description = description,
+		y_value = y_value,
+		y_value_name = y_value_name,
+		desired_value = center,
+		desired_value_name = desired_value_name
 		)
 
 }
@@ -78,14 +78,12 @@ generate_ewma_bounds = function(n_blocks, center, sd, parameters) {
 	LWB = numeric(n_blocks)
 	UWB = numeric(n_blocks)
 	for (i in 1:n_blocks) {
-		sqrt_term = sqrt((lambda/(n_blocks*(2-lambda)))*(1-(1-lambda)^(2*i)))
+		sqrt_term = sqrt((lambda / (n_blocks * (2 - lambda))) * (1 - (1 - lambda)^(2 * i)))
 		LCB[i] = center - k * sd * sqrt_term
 		UCB[i] = center + k * sd * sqrt_term
 		LWB[i] = center - omega * sd * sqrt_term
 		UWB[i] = center + omega * sd * sqrt_term
 
 	}
-	return(list(LCB=LCB, UCB=UCB,LWB=LWB,UWB=UWB))
+	return(list(LCB = LCB, UCB = UCB, LWB = LWB, UWB = UWB))
 }
-
-#attr("generate_ewma_chart", "class") = "ewma_chart"
