@@ -2,8 +2,8 @@ Package: scc
 Type: Package
 Title: Shewart control charts in R.
 Version: 1.0
-Author: Jakob Bossek <jakob.bossek@tu-dortmund.de>
-Maintainer: Jakob Bossek <jakob.bossek@tu-dortmund.de>
+Authors@R: c(person("Jakob", "Bossek", email = "j.bossek@gmail.com", role =
+    c("aut", "cre")))
 Description: Offers the possibility to draw different types of quality control
     charts like x-bar sharts and more modern charts like EWMA-charts or
     CUSUM-charts in R.
