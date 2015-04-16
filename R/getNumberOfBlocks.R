@@ -6,11 +6,11 @@
 #' @return [\code{integer(1)}]
 #'    Number of blocks.
 #' @export
-number_of_blocks = function(x) {
-	UseMethod("number_of_blocks")
+getNumberOfBlocks = function(x) {
+	UseMethod("getNumberOfBlocks")
 }
 
 #' @export
-number_of_blocks.scc_chart = function(x, ...) {
+getNumberOfBlocks.scc_chart = function(x, ...) {
 	length(x$blocks)
 }

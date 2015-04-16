@@ -10,12 +10,10 @@
 #'
 #' @export
 plot.scc_chart = function(x, ...) {
-	#FIXME: add labels for bounds to the right margin
-	n_blocks = number_of_blocks(x)
+	n_blocks = getNumberOfBlocks(x)
 	bounds = x$bounds
 
 	# add enough whitespace between plot border and control lines
-	#FIXME: should this be controlled by the user?
 	ylim_space = 0.1 * (max(bounds$UCB) - min(bounds$LCB))
 
 	# draw polygon
@@ -25,7 +23,8 @@ plot.scc_chart = function(x, ...) {
 		xlab = "block",
 		ylab = x$y_value_name,
 		ylim = c(min(bounds$LCB) - ylim_space, max(bounds$UCB) + ylim_space),
-		...)
+		...
+  )
 
 	grid()
 	# draw points of polygon
@@ -41,7 +40,6 @@ plot.scc_chart = function(x, ...) {
 	mtext(x$desired_value_name, side = 4, at = c(n_blocks, y_value_pos), cex = 0.7, outer = FALSE, line = 1, las = 1)
 
 	# draw control bounds
-	# FIXME: handle non-constant control bounds
 	if (length(bounds$UCB) == 1) {
 		abline(h = bounds$UCB, lty = 5, lwd = 2, col = "tomato")
 		abline(h = bounds$LCB, lty = 5, lwd = 2, col = "tomato")
@@ -51,7 +49,6 @@ plot.scc_chart = function(x, ...) {
 	}
 
 	#draw control bounds
-	# FIXME: handle non-constant warning bounds
 	if ("LWB" %in% names(bounds) && "UWB" %in% names(bounds)) {
 		if (length(bounds$UWB) == 1) {
 			abline(h = bounds$UWB, lty = 5, lwd = 2, col = "tomato2")

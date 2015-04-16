@@ -12,10 +12,9 @@ Maintainer: Jakob Bossek <j.bossek@gmail.com>
 URL: https://github.com/jbossek/scc
 BugReports: https://github.com/jbossek/scc/issues
 Depends:
-    BBmisc (>= 1.9),
-    checkmate (>= 1.5.2)
+    BBmisc (>= 1.9)
 Imports:
-    checkmate (>= 1.1),
+    checkmate (>= 1.5.2),
     ggplot2,
     gridExtra
 Suggests:

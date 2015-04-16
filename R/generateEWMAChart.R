@@ -19,12 +19,11 @@
 #'   value or comply with the number of blocks (see blocks parameter).
 #' @param desired_value_name [\code{character(1)}]\cr
 #'   Label of the desired value. Used in the graphical representation.
-#'
 #' @return
 #'   Object of class \code{scc_chart} and \code{ewma_chart}.
-#'
 #' @export
-generate_ewma_chart = function(blocks,
+generateEWMAChart = function(
+  blocks,
 	center,
 	sd,
 	parameters = list(lambda = 0.5),
@@ -33,18 +32,14 @@ generate_ewma_chart = function(blocks,
 	desired_value, desired_value_name) {
 
 	# build up parameter set
-	#FIXME: this is implemented very ugly! Think about this!
-	#FIXME: Think thorougly about the parameters! This is of utmost importance for a good structure
-	#       of the package.
 	not_privided_params = list(lambda=0.5, omega=1.96, k=3)
 	not_provided_param_names = setdiff(names(not_privided_params), names(parameters))
 	parameters = c(parameters,not_privided_params[not_provided_param_names])
-	print(parameters)
 
 	stopifnot(parameters$lambda > 0 & parameters$lambda < 1)
 	# compute bounds
 	n_blocks = length(blocks)
-	bounds = generate_ewma_bounds(n_blocks, center, sd, parameters)
+	bounds = computeEWMAChartBounds(n_blocks, center, sd, parameters)
 
 	block_means = as.numeric(lapply(blocks, mean))
 	y_value = numeric(n_blocks)
@@ -55,7 +50,8 @@ generate_ewma_chart = function(blocks,
 	}
 
 	# generate scc chart object
-	generate_chart(
+  print("Ha")
+	generateChart(
 		blocks = blocks,
 		type = "ewma",
 		parameters = parameters,
@@ -65,11 +61,10 @@ generate_ewma_chart = function(blocks,
 		y_value_name = y_value_name,
 		desired_value = center,
 		desired_value_name = desired_value_name
-		)
-
+	)
 }
 
-generate_ewma_bounds = function(n_blocks, center, sd, parameters) {
+computeEWMAChartBounds = function(n_blocks, center, sd, parameters) {
 	k = parameters$k
 	omega = parameters$omega
 	lambda = parameters$lambda
@@ -83,7 +78,6 @@ generate_ewma_bounds = function(n_blocks, center, sd, parameters) {
 		UCB[i] = center + k * sd * sqrt_term
 		LWB[i] = center - omega * sd * sqrt_term
 		UWB[i] = center + omega * sd * sqrt_term
-
 	}
 	return(list(LCB = LCB, UCB = UCB, LWB = LWB, UWB = UWB))
 }

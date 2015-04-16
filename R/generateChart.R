@@ -25,21 +25,28 @@
 #'   value or comply with the number of blocks (see blocks parameter).
 #' @param desired_value_name [\code{character(1)}]\cr
 #'   Label of the desired value. Used in the graphical representation.
-#'
 #' @return
 #'   Object of type \code{scc_chart}.
-#'
 #' @export
-generate_chart = function(blocks, type,
+#FIXME: think about naming of the parameters
+generateChart = function(
+  blocks, type,
 	parameters, bounds,
 	description,
 	y_value, y_value_name = "measured quantity",
 	desired_value, desired_value_name) {
-	#FIXME: add sanity checks here
-	#FIXME: think about naming of the parameters
-	#FIXME: maybe move dataframe_to_list to JBmisc?
-	blocks = if(is.data.frame(blocks)) dataframe_to_list(blocks, byrow = FALSE) else blocks
-	structure(list(
+  assertCharacter(type, len = 1L, any.missing = FALSE)
+  assertList(bounds)
+  assertCharacter(description)
+  assertNumeric(y_value, min.len = 1L, any.missing = FALSE, all.missing = FALSE)
+  assertCharacter(y_value_name, len = 1L, any.missing = TRUE)
+  assertNumeric(desired_value, min.len = 1L)
+  assertCharacter(desired_value_name, len = 1L, any.missing = FALSE)
+	if(is.data.frame(blocks)) {
+    blocks = as.list(blocks)
+  }
+  assertList(blocks)
+	makeS3Obj(
 		blocks = blocks,
 		type = type,
 		parameters = parameters,
@@ -48,11 +55,11 @@ generate_chart = function(blocks, type,
 		y_value_name = y_value_name,
 		description = description,
 		desired_value = desired_value,
-		desired_value_name = desired_value_name),
-		class = "scc_chart"
+		desired_value_name = desired_value_name,
+		classes = "scc_chart"
 	)
 }
 
-is_scc_chart = function(x) {
+isChart = function(x) {
 	inherits(x, "scc_chart")
 }
